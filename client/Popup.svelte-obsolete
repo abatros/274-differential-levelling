@@ -1,0 +1,53 @@
+
+<!-- Popup.svelte -->
+<script>
+  export let message = 'Hi';
+  export let onClose = function(){
+    console.log('onClose@6 not set!')
+  };
+
+  export let onClosex = function(){
+    console.log('closing@6 in Popup',{endp});
+    endp.gps_elevation = gps_elevation;
+    console.log('closing@7 in Popup',{endp});
+    onClose(endp);
+    modal.set(null)
+  }
+
+  export let endp;
+  export let modal; // to close
+  console.log(`Popup@6`,{endp})
+  let gps_elevation = endp.gps_elevation
+  import {setContext} from 'svelte'
+  // too late setContext('endp',endp); // for AppluBtn
+
+  let allow = (endp.gps_elevation != undefined);
+</script>
+
+<vbox class="qc">
+  <p>GPS Station {endp.sid}</p>
+  {#if endp.gps_elevation == undefined}
+  <p style="margin:10pt;">
+  <b>this station does not exists in the Database</b>
+  </p>
+  <hbox style="margin:0 0 10pt 0">
+    check to allow creation
+    <input type="checkbox" bind:checked={allow}/>
+  </hbox>
+  {/if}
+
+  {#if allow}
+  <input type="text" bind:value={gps_elevation}
+  style="font-size:16pt; width:60pt;">
+  <hbox class="qj" style="width:80%;margin-top:30pt;">
+    <button on:click={function(){modal.set(null)}}>Quit</button>
+    <button on:click={onClosex}>Apply</button>
+  </hbox>
+  {/if}
+</vbox>
+
+<style media="screen">
+  button {
+    font-size:16pt;
+  }
+</style>

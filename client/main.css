@@ -1,0 +1,35 @@
+body {
+  -padding: 10px;
+  font-family: sans-serif;
+}
+
+hbox, .hbox {
+  display:flex;
+  flex-direction: row;
+}
+
+hbox.qc {
+  justify-content: center;
+}
+
+hbox.qj {
+  justify-content: space-between;
+}
+
+vbox, .vbox {
+  display:flex;
+  flex-direction: column;
+}
+
+vbox.ql {
+  align-items: flex-start;
+}
+
+vbox.qc {
+  align-items: center;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
