@@ -1,0 +1,26 @@
+project: UTA-ST
+location: Burirum
+date: 12/12/51
+time.start: 11:32
+time.finish: 17:20
+
+party: 02
+loop: 01
+zone: Z
+section: S
+temp.avg: 28
+observer: lekky
+computed: automatic
+recorder:
+checked:
+weather:
+instrument: Sprinter - A55272
+staff.no:
+start-with-no:
+
+specs:
+  - delta.interval <2mm
+  - dist each target < 70m
+  - dist BS-FS < 10m
+  - sum dist (BS-FS) < 20m
+  - closure error < 12mm.k^(1/2)
