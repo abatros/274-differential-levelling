@@ -33,7 +33,6 @@ function get_accessKeys() {
 
 /*
 GitHUB.
-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
 */
 const {accessKeyId, secretAccessKey} = get_accessKeys();
 
